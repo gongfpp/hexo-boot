@@ -34,9 +34,11 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
-      jdbc-url: jdbc:mysql://121.37.186.99/hexo-boot?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&rewriteBatchedStatements=true&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
-      username: public
-      password: test
+      # 数据库连接配置请从环境变量 / 密钥管理读取，勿在此硬编码
+      # 以下为占位示例，非真实凭据
+      jdbc-url: jdbc:mysql://${DB_HOST:localhost}:3306/${DB_NAME:hexo_boot}?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&rewriteBatchedStatements=true&useSSL=true&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+      username: ${DB_USER:app_user}
+      password: ${DB_PASSWORD:changeme}
       minimum-idle: 5
       maximum-pool-size: 20
       max-lifetime: 1800000
